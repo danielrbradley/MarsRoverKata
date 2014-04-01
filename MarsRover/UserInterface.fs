@@ -1,6 +1,6 @@
 ﻿module MarsRover.UserInterface
 
-type Commands =
+type Command =
     | MoveForward
     | MoveBackward
     | TurnLeft
@@ -21,3 +21,20 @@ let internal parseCommands (input : string) =
     input
     |> explode
     |> Seq.map parseCommand
+
+open Domain
+
+let private apply (state : State) (command : Command) =
+    match command with
+    | MoveForward -> moveForward state
+    | MoveBackward -> moveBackward state
+    | TurnLeft -> turnLeft state
+    | TurnRight -> turnRight state
+
+let execute (input : string) (state : State) =
+    input
+    |> parseCommands
+    |> Seq.fold apply state
+
+let sprint (state : State) =
+    sprintf "%i,%i facing %A" state.PosX state.PosY state.Heading

@@ -50,6 +50,7 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <Compile Include="UserInterface.Parsing.fs" />
+    <Compile Include="UserInterface.Output.fs" />
     <None Include="packages.config" />
     <None Include="app.config" />
   </ItemGroup>
