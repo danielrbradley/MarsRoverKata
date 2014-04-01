@@ -9,7 +9,9 @@ module ``Starting at 1,1 facing North`` =
     let start = 
         { PosX = 1
           PosY = 1
-          Heading = North }
+          Heading = North 
+          GridWidth = 10
+          GridHeight = 10 }
     
     [<Test>]
     let ``Moving forward should increase y``() = 
@@ -43,7 +45,9 @@ module ``Starting at 1,1 facing East`` =
     let start = 
         { PosX = 1
           PosY = 1
-          Heading = East }
+          Heading = East 
+          GridWidth = 10
+          GridHeight = 10 }
     
     [<Test>]
     let ``Moving forward should increase x``() = 
@@ -77,7 +81,9 @@ module ``Starting at 1,1 facing South`` =
     let start = 
         { PosX = 1
           PosY = 1
-          Heading = South }
+          Heading = South 
+          GridWidth = 10
+          GridHeight = 10 }
     
     [<Test>]
     let ``Moving forward should decrease y``() = 
@@ -111,7 +117,9 @@ module ``Starting at 1,1 facing West`` =
     let start = 
         { PosX = 1
           PosY = 1
-          Heading = West }
+          Heading = West 
+          GridWidth = 10
+          GridHeight = 10 }
     
     [<Test>]
     let ``Moving forward should decrease x``() = 
@@ -146,7 +154,9 @@ module ``Multi-step scenarios`` =
         let start = 
             { PosX = 0
               PosY = 0
-              Heading = North }
+              Heading = North 
+              GridWidth = 10
+              GridHeight = 10 }
         
         [<Test>]
         let ``Moving forward twice, turning right, then moving forward twice more``() = 

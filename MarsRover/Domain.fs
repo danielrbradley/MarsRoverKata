@@ -9,7 +9,9 @@ type Heading =
 type State = 
     { PosX : int
       PosY : int
-      Heading : Heading }
+      Heading : Heading
+      GridWidth : int
+      GridHeight : int }
 
 let private move (places : int) (state : State) = 
     match state.Heading with
