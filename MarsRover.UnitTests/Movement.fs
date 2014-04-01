@@ -1,4 +1,4 @@
-﻿module MarsRover.UnitTests.UserInterface.Scenarios
+﻿module MarsRover.UnitTests.Movement
 
 open NUnit.Framework
 open FsUnit

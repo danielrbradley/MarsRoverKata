@@ -1,4 +1,4 @@
-﻿module MarsRover.UnitTests.UserInterface.Obstacles
+﻿module MarsRover.UnitTests.Obstacles
 
 open NUnit.Framework
 open FsUnit
