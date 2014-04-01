@@ -4,7 +4,6 @@ open NUnit.Framework
 open FsUnit
 open MarsRover.UserInterface
 open MarsRover.Domain
-open MarsRover.UnitTests.Vocabulary
 
 [<Test>]
 let ``Wrapping over``() = wrap -1 10 |> should equal 9
@@ -12,9 +11,30 @@ let ``Wrapping over``() = wrap -1 10 |> should equal 9
 [<Test>]
 let ``Wrapping under``() = wrap 10 10 |> should equal 0
 
+module Vocabulary =
+    let ``On 10x10 grid`` = 
+        { PosX = 0
+          PosY = 0
+          Heading = North
+          GridWidth = 10
+          GridHeight = 10 }
+
+    let ``starting at`` (x : int, y : int) (state : State) = 
+        { state with PosX = x
+                     PosY = y }
+
+    let facing (h : Heading) (state : State) = { state with Heading = h }
+
+    let executing (commands : string) (state : State) = 
+        state
+        |> execute commands
+        |> sprint
+
+open Vocabulary
+
 [<Test>]
 let ``Wrapping off bottom``() = 
-    ``On grid of`` (10, 10)
+    ``On 10x10 grid``
     |> ``starting at`` (0, 0)
     |> facing South
     |> executing "F"
@@ -22,7 +42,7 @@ let ``Wrapping off bottom``() =
 
 [<Test>]
 let ``Wrapping off top``() = 
-    ``On grid of`` (10, 10)
+    ``On 10x10 grid``
     |> ``starting at`` (0, 9)
     |> facing North
     |> executing "F"
@@ -30,7 +50,7 @@ let ``Wrapping off top``() =
 
 [<Test>]
 let ``Wrapping off left``() = 
-    ``On grid of`` (10, 10)
+    ``On 10x10 grid``
     |> ``starting at`` (0, 0)
     |> facing West
     |> executing "F"
@@ -38,7 +58,7 @@ let ``Wrapping off left``() =
 
 [<Test>]
 let ``Wrapping off right``() = 
-    ``On grid of`` (10, 10)
+    ``On 10x10 grid``
     |> ``starting at`` (9, 0)
     |> facing East
     |> executing "F"
