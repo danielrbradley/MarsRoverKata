@@ -140,3 +140,17 @@ module ``Starting at 1,1 facing West`` =
         |> execute "L"
         |> sprint
         |> should equal "1,1 facing South"
+
+module ``Multi-step scenarios`` = 
+    module ``Starting at 0,0 facing North`` = 
+        let start = 
+            { PosX = 0
+              PosY = 0
+              Heading = North }
+        
+        [<Test>]
+        let ``Moving forward twice, turning right, then moving forward twice more``() = 
+            start
+            |> execute "FFRFF"
+            |> sprint
+            |> should equal "2,2 facing East"

@@ -11,19 +11,15 @@ type State =
       PosY : int
       Heading : Heading }
 
-let moveForward state = 
+let private move (places : int) (state : State) = 
     match state.Heading with
-    | North -> { state with PosY = state.PosY + 1 }
-    | South -> { state with PosY = state.PosY - 1 }
-    | East -> { state with PosX = state.PosX + 1 }
-    | West -> { state with PosX = state.PosX - 1 }
+    | North -> { state with PosY = state.PosY + places }
+    | South -> { state with PosY = state.PosY - places }
+    | East -> { state with PosX = state.PosX + places }
+    | West -> { state with PosX = state.PosX - places }
 
-let moveBackward state = 
-    match state.Heading with
-    | North -> { state with PosY = state.PosY - 1 }
-    | South -> { state with PosY = state.PosY + 1 }
-    | East -> { state with PosX = state.PosX - 1 }
-    | West -> { state with PosX = state.PosX + 1 }
+let moveForward = move 1
+let moveBackward = move -1
 
 let turnLeft state = 
     match state.Heading with
