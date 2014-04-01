@@ -17,13 +17,19 @@ let internal wrap pos size =
     if pos < 0 then size + pos
     else pos % size
 
-let private move (places : int) (state : State) = 
+let private applyWrap (state : State) = 
     match state.Heading with
-    | North -> { state with PosY = wrap (state.PosY + places) state.GridHeight }
-    | South -> { state with PosY = wrap (state.PosY - places) state.GridHeight }
-    | East -> { state with PosX = wrap (state.PosX + places) state.GridWidth }
-    | West -> { state with PosX = wrap (state.PosX - places) state.GridWidth }
+    | North | South -> { state with PosY = wrap state.PosY state.GridHeight }
+    | East | West -> { state with PosX = wrap state.PosX state.GridWidth }
 
+let private applyMove (places : int) (state : State) = 
+    match state.Heading with
+    | North -> { state with PosY = state.PosY + places }
+    | South -> { state with PosY = state.PosY - places }
+    | East -> { state with PosX = state.PosX + places }
+    | West -> { state with PosX = state.PosX - places }
+
+let private move (places : int) = applyMove places >> applyWrap
 let moveForward = move 1
 let moveBackward = move -1
 
