@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Parsing.fs" />
     <Compile Include="Output.fs" />
+    <Compile Include="Turning.fs" />
     <Compile Include="Movement.fs" />
     <Compile Include="Wrapping.fs" />
     <Compile Include="Obstacles.fs" />

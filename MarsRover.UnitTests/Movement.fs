@@ -11,7 +11,7 @@ module ``Starting at 1,1 facing North`` =
     let start = 
         { PosX = 1
           PosY = 1
-          Heading = North 
+          Heading = North
           GridWidth = 10
           GridHeight = 10 }
     
@@ -28,26 +28,12 @@ module ``Starting at 1,1 facing North`` =
         |> execute "B"
         |> sprint
         |> should equal "1,0 facing North"
-    
-    [<Test>]
-    let ``Turning right should head east``() = 
-        start
-        |> execute "R"
-        |> sprint
-        |> should equal "1,1 facing East"
-    
-    [<Test>]
-    let ``Turning left should head West``() = 
-        start
-        |> execute "L"
-        |> sprint
-        |> should equal "1,1 facing West"
 
 module ``Starting at 1,1 facing East`` = 
     let start = 
         { PosX = 1
           PosY = 1
-          Heading = East 
+          Heading = East
           GridWidth = 10
           GridHeight = 10 }
     
@@ -64,26 +50,12 @@ module ``Starting at 1,1 facing East`` =
         |> execute "B"
         |> sprint
         |> should equal "0,1 facing East"
-    
-    [<Test>]
-    let ``Turning right should head South``() = 
-        start
-        |> execute "R"
-        |> sprint
-        |> should equal "1,1 facing South"
-    
-    [<Test>]
-    let ``Turning left should head North``() = 
-        start
-        |> execute "L"
-        |> sprint
-        |> should equal "1,1 facing North"
 
 module ``Starting at 1,1 facing South`` = 
     let start = 
         { PosX = 1
           PosY = 1
-          Heading = South 
+          Heading = South
           GridWidth = 10
           GridHeight = 10 }
     
@@ -100,26 +72,12 @@ module ``Starting at 1,1 facing South`` =
         |> execute "B"
         |> sprint
         |> should equal "1,2 facing South"
-    
-    [<Test>]
-    let ``Turning right should head West``() = 
-        start
-        |> execute "R"
-        |> sprint
-        |> should equal "1,1 facing West"
-    
-    [<Test>]
-    let ``Turning left should head East``() = 
-        start
-        |> execute "L"
-        |> sprint
-        |> should equal "1,1 facing East"
 
 module ``Starting at 1,1 facing West`` = 
     let start = 
         { PosX = 1
           PosY = 1
-          Heading = West 
+          Heading = West
           GridWidth = 10
           GridHeight = 10 }
     
@@ -136,27 +94,13 @@ module ``Starting at 1,1 facing West`` =
         |> execute "B"
         |> sprint
         |> should equal "2,1 facing West"
-    
-    [<Test>]
-    let ``Turning right should head North``() = 
-        start
-        |> execute "R"
-        |> sprint
-        |> should equal "1,1 facing North"
-    
-    [<Test>]
-    let ``Turning left should head South``() = 
-        start
-        |> execute "L"
-        |> sprint
-        |> should equal "1,1 facing South"
 
 module ``Multi-step scenarios`` = 
     module ``Starting at 0,0 facing North`` = 
         let start = 
             { PosX = 0
               PosY = 0
-              Heading = North 
+              Heading = North
               GridWidth = 10
               GridHeight = 10 }
         
