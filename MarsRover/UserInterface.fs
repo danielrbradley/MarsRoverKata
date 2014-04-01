@@ -1,12 +1,12 @@
 ﻿module MarsRover.UserInterface
 
-type Command =
+type Command = 
     | MoveForward
     | MoveBackward
     | TurnLeft
     | TurnRight
 
-let internal parseCommand (inputLetter : char) =
+let internal parseCommand (inputLetter : char) = 
     match inputLetter with
     | 'F' -> MoveForward
     | 'B' -> MoveBackward
@@ -14,27 +14,27 @@ let internal parseCommand (inputLetter : char) =
     | 'R' -> TurnRight
     | _ -> failwith "Unrecognised command"
 
-let private explode (s:string) =
-    seq {for c in s -> c}
+let private explode (s : string) = 
+    seq { 
+        for c in s -> c
+    }
 
-let internal parseCommands (input : string) =
+let internal parseCommands (input : string) = 
     input
     |> explode
     |> Seq.map parseCommand
 
 open Domain
 
-let private apply (state : State) (command : Command) =
-    match command with
-    | MoveForward -> moveForward state
-    | MoveBackward -> moveBackward state
-    | TurnLeft -> turnLeft state
-    | TurnRight -> turnRight state
-
-let execute (input : string) (state : State) =
+let execute (hasObstacle : int * int -> bool) (input : string) (state : State) = 
+    let apply (state : State) (command : Command) = 
+        match command with
+        | MoveForward -> moveForward state
+        | MoveBackward -> moveBackward state
+        | TurnLeft -> turnLeft state
+        | TurnRight -> turnRight state
     input
     |> parseCommands
     |> Seq.fold apply state
 
-let sprint (state : State) =
-    sprintf "%i,%i facing %A" state.PosX state.PosY state.Heading
+let sprint (state : State) = sprintf "%i,%i facing %A" state.PosX state.PosY state.Heading

@@ -27,7 +27,7 @@ module Vocabulary =
 
     let executing (commands : string) (state : State) = 
         state
-        |> execute commands
+        |> execute (fun _ -> false) commands
         |> sprint
 
 open Vocabulary

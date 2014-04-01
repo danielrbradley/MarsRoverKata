@@ -5,6 +5,8 @@ open FsUnit
 open MarsRover.UserInterface
 open MarsRover.Domain
 
+let execute = execute (fun _ -> false)
+
 module ``Starting at 1,1 facing North`` = 
     let start = 
         { PosX = 1
