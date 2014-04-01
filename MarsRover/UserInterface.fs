@@ -29,8 +29,8 @@ open Domain
 let execute (hasObstacle : int * int -> bool) (input : string) (state : State) = 
     let apply (state : State) (command : Command) = 
         match command with
-        | MoveForward -> moveForward state
-        | MoveBackward -> moveBackward state
+        | MoveForward -> moveForward hasObstacle state
+        | MoveBackward -> moveBackward hasObstacle state
         | TurnLeft -> turnLeft state
         | TurnRight -> turnRight state
     input

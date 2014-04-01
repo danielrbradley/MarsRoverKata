@@ -29,7 +29,19 @@ let private applyMove (places : int) (state : State) =
     | East -> { state with PosX = state.PosX + places }
     | West -> { state with PosX = state.PosX - places }
 
-let private move (places : int) = applyMove places >> applyWrap
+let private isObstructed (hasObsatcle : int * int -> bool) (state : State) = hasObsatcle (state.PosX, state.PosY)
+
+let private revertIfObstructed (isStateObstructed : State -> bool) (previousState : State) (newState : State) = 
+    if isStateObstructed newState then previousState
+    else newState
+
+let private move (places : int) (hasObsatcle : int * int -> bool) (state : State) = 
+    let isObstructed' = isObstructed hasObsatcle
+    state
+    |> applyMove places
+    |> applyWrap
+    |> revertIfObstructed isObstructed' state
+
 let moveForward = move 1
 let moveBackward = move -1
 
