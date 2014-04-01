@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="UserInterface.Parsing.fs" />
     <Compile Include="UserInterface.Output.fs" />
+    <Compile Include="UserInterface.Scenarios.fs" />
     <None Include="packages.config" />
     <None Include="app.config" />
   </ItemGroup>
