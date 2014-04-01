@@ -13,12 +13,16 @@ type State =
       GridWidth : int
       GridHeight : int }
 
+let internal wrap pos size = 
+    if pos < 0 then size + pos
+    else pos % size
+
 let private move (places : int) (state : State) = 
     match state.Heading with
-    | North -> { state with PosY = state.PosY + places }
-    | South -> { state with PosY = state.PosY - places }
-    | East -> { state with PosX = state.PosX + places }
-    | West -> { state with PosX = state.PosX - places }
+    | North -> { state with PosY = wrap (state.PosY + places) state.GridHeight }
+    | South -> { state with PosY = wrap (state.PosY - places) state.GridHeight }
+    | East -> { state with PosX = wrap (state.PosX + places) state.GridWidth }
+    | West -> { state with PosX = wrap (state.PosX - places) state.GridWidth }
 
 let moveForward = move 1
 let moveBackward = move -1
