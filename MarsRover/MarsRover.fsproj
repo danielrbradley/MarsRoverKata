@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="AssemblyConfig.fs" />
     <Compile Include="Domain.fs" />
-    <Compile Include="UserInterface.fs" />
+    <Compile Include="Interface.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>

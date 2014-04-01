@@ -2,7 +2,7 @@
 
 open NUnit.Framework
 open FsUnit
-open MarsRover.UserInterface
+open MarsRover.Interface
 open MarsRover.Domain
 
 let execute = execute (fun _ -> false)

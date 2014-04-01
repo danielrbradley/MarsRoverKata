@@ -2,7 +2,7 @@
 
 open NUnit.Framework
 open FsUnit
-open MarsRover.UserInterface
+open MarsRover.Interface
 open MarsRover.Domain
 
 [<Test>]

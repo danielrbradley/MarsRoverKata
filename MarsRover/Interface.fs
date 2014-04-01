@@ -1,4 +1,4 @@
-﻿module MarsRover.UserInterface
+﻿module MarsRover.Interface
 
 type Command = 
     | MoveForward
