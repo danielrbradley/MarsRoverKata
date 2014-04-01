@@ -1,4 +1,4 @@
-﻿module MarsRover.UnitTests.UserInterface.ParseCommand
+﻿module MarsRover.UnitTests.UserInterface.Parsing
 
 open NUnit.Framework
 open FsUnit

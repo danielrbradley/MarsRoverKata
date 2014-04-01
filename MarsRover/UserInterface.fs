@@ -6,7 +6,7 @@ type Commands =
     | TurnLeft
     | TurnRight
 
-let parseCommand (inputLetter : char) =
+let internal parseCommand (inputLetter : char) =
     match inputLetter with
     | 'F' -> MoveForward
     | 'B' -> MoveBackward
