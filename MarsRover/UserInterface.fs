@@ -13,3 +13,11 @@ let internal parseCommand (inputLetter : char) =
     | 'L' -> TurnLeft
     | 'R' -> TurnRight
     | _ -> failwith "Unrecognised command"
+
+let private explode (s:string) =
+    seq {for c in s -> c}
+
+let internal parseCommands (input : string) =
+    input
+    |> explode
+    |> Seq.map parseCommand

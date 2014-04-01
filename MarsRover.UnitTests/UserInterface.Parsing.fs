@@ -18,6 +18,21 @@ let ``Turn left`` ()=
     parseCommand 'L' |> should equal TurnLeft
 
 [<Test>]
-let ``Turn Right`` ()=
+let ``Turn right`` ()=
     parseCommand 'R' |> should equal TurnRight
 
+module ``Move forward then turn right`` =
+    let commands =  parseCommands "FR"
+
+    [<Test>]
+    let ``the first command should be MoveForward`` () =
+       commands 
+       |> Seq.head 
+       |> should equal MoveForward
+
+    [<Test>]
+    let ``The second command should be TurnRight`` () =
+       commands 
+       |> Seq.skip 1
+       |> Seq.head 
+       |> should equal TurnRight
