@@ -52,6 +52,8 @@
     <Compile Include="UserInterface.Parsing.fs" />
     <Compile Include="UserInterface.Output.fs" />
     <Compile Include="UserInterface.Scenarios.fs" />
+    <Compile Include="Vocabulary.fs" />
+    <Compile Include="UserInterface.WrappingScenarios.fs" />
     <None Include="packages.config" />
     <None Include="app.config" />
   </ItemGroup>
