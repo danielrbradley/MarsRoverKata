@@ -2,7 +2,13 @@
 open MarsRover.Domain
 open MarsRover.Interface
 
-let execute = execute (fun _ -> false)
+let promptIsBlocked (x,y) =
+    printf "Does (%i,%i) contain an osticle? y/n " x y
+    let isKeyY = Console.ReadKey(false).Key = ConsoleKey.Y
+    Console.WriteLine()
+    isKeyY
+
+let execute = execute promptIsBlocked
 
 let parseGridSize (input : string) = 
     try 
